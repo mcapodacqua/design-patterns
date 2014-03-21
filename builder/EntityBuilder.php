@@ -38,11 +38,6 @@ class EntityBuilder implements IEntityBuilder{
 		$this->attr3 = $attr;
 		return $this;
 	}
-	
-	/**
-	 * 
-	 * @return Entity
-	 */
 	public function build() {
 		return Entity::create($this);
 	}
