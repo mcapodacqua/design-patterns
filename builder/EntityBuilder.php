@@ -1,4 +1,21 @@
 <?php
+/**
+ * This Builder is a small example of a simple builder object. 
+ * As I'm not using any conection with a database, this only works with
+ * non persistent data. 
+ * But the idea is to create multiple builders for different transactions.
+ * <p>
+ * 	IE: you can create a InsertEntityBuilder, this should implements 
+ * 	<i>IEntityBuilder</i> and in the method <i>InsertEntityBuilder::build()</i> insert a row
+ * 	in the database and finally creates the Entity. The same idea for <i>UpdateEntityBuilder</i>. 
+ * <p>
+ * <p>
+ * 	You can add require fields in the constructor of your builder, for example, 
+ * 	if your builder most search based in a ID.
+ * </p>
+ * 
+ * @author Maxi Capodacqua
+ */
 class EntityBuilder implements IEntityBuilder{
 	
 	private $id;
@@ -38,6 +55,17 @@ class EntityBuilder implements IEntityBuilder{
 		$this->attr3 = $attr;
 		return $this;
 	}
+	
+	/**
+	 * Creates a new Entity with the respective data
+	 * 
+	 * <i>This method could made any logic with the database, 
+	 * like, insert the new object, search for the object based on the attributes, 
+	 * or updates the object.</i> 
+	 * 
+	 * @see IBuilder::build()
+	 * @return Entity
+	 */
 	public function build() {
 		return Entity::create($this);
 	}
