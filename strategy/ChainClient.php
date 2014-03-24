@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This Client class use the different Strategies based on the actions 
  * improved. 
