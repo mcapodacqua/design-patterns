@@ -19,7 +19,6 @@ class EmptyCartState implements IShoppingCartState {
 		$this->cart->addProduct($discountedProduct);
 	}
 	public function getTotal() {
-		echo 'nooo';
 		return 0;
 	}
 }
