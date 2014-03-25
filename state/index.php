@@ -1,0 +1,38 @@
+<?php
+require 'IShoppingCartState.php';
+require 'EmptyCartState.php';
+require 'NotEmptyCartState.php';
+require 'FullCartState.php';
+require 'ShoppingCart.php';
+
+$cart = new ShoppingCart();
+$p1 = [IShoppingCartState::PRODUCT_NAME => 'Milk',IShoppingCartState::PRODUCT_VALUE => 10];
+$p2 = [IShoppingCartState::PRODUCT_NAME => 'Water',IShoppingCartState::PRODUCT_VALUE => 15];
+$p3 = [IShoppingCartState::PRODUCT_NAME => 'Chocolate',IShoppingCartState::PRODUCT_VALUE => 5];
+$p4 = [IShoppingCartState::PRODUCT_NAME => 'Yerba Mate',IShoppingCartState::PRODUCT_VALUE => 45];
+echo "Initial state: " . $cart->getStateName();
+echo "\n";
+echo "Adding a product: ";
+var_dump($p1);
+$cart->addProduct($p1);
+echo $cart->getStateName();
+echo "\n";
+echo "Total:" . $cart->getTotal();
+echo "\n";
+echo "Adding a product: ";
+var_dump($p2);
+$cart->addProduct($p2);
+echo "\n";
+echo "Adding a product: ";
+var_dump($p3);
+$cart->addProduct($p3);
+echo $cart->getStateName();
+echo "\n";
+echo "Total:" . $cart->getTotal();
+echo "\n";
+echo "Adding a product: ";
+var_dump($p4);
+$cart->addProduct($p4);
+echo "\n";
+echo "Total:" . $cart->getTotal();
+echo "\n";
